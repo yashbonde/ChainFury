@@ -138,3 +138,7 @@ server/templates/*
 # MacOS
 .DS_Store
 private_env.sh
+langflow
+pyproject.toml
+dunmp.rdb
+*.ipynb

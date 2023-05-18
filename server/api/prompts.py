@@ -28,8 +28,8 @@ logger = logging.getLogger(__name__)
 
 @router.post("/chatbot/{chatbot_id}/prompt")
 def process_prompt(request: Request, chatbot_id: str, prompt: Prompt, db: Session = Depends(fastapi_db_session)):
+    # TODO: @yashbonde process dag here
     result = get_prompt(chatbot_id, prompt, db)
-
     # manage any callbacks
     ph = get_phandler()
     ph.handle(Event(event_type=Event.types.PROCESS_PROMPT, data=result))
